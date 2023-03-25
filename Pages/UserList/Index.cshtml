@@ -1,0 +1,63 @@
+﻿@page
+@model AspnetCoreWebApp.Pages.UserList.IndexModel
+@{
+}
+
+
+<h1> User List</h1>
+
+<br/>
+<div class="container row p-0 m-0">
+    <div class="col-9">
+        <h2 class="text-info">Users List</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Create New User</a>
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if(Model.Users.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Users.FirstOrDefault().UserName"></label>
+
+                        </th>
+                        <th>
+                            <label asp-for="Users.FirstOrDefault().Email"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Users.FirstOrDefault().NormalizedUserName"></label>
+
+                        </th>
+                        <th>
+                            <label asp-for="Users.FirstOrDefault().EmailConfirmed"></label>
+                        </th>
+
+                    </tr>
+                    @foreach(var items in Model.Users)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => items.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => items.Email)
+                            </td>
+                        </tr>
+                        
+                    }
+
+                </table>
+                
+            }
+            else
+            {
+                <p>No Book Found</p>
+            }
+        </form>
+    </div>
+
+</div>
