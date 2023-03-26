@@ -75,6 +75,24 @@ namespace AspnetCoreWebApp.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
+            /// 
+
+            [DataType(DataType.Text)]
+            [Display(Name = "UserAdress")]
+            public String UserAdress { get; set; }
+
+            [DataType(DataType.Text)]
+            [Display(Name = "UserManagerName")]
+            public String UserManagerName { get; set; }
+
+            [DataType(DataType.Text)]
+            [Display(Name = "adress")]
+            public String adress { get; set; }
+
+            [DataType(DataType.Text)]
+            [Display(Name = "managerName")]
+            public String managerName { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -114,6 +132,10 @@ namespace AspnetCoreWebApp.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                user.UserAdress = Input.UserAdress;
+                user.UserManagerName = Input.UserManagerName;
+                user.adress = Input.UserAdress;
+                user.managerName=Input.UserManagerName;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

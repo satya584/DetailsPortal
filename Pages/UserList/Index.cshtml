@@ -29,12 +29,18 @@
                             <label asp-for="Users.FirstOrDefault().Email"></label>
                         </th>
                         <th>
-                            <label asp-for="Users.FirstOrDefault().NormalizedUserName"></label>
+                            <label asp-for="Users.FirstOrDefault().PhoneNumber"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Users.FirstOrDefault().UserAdress"></label>
 
                         </th>
                         <th>
-                            <label asp-for="Users.FirstOrDefault().EmailConfirmed"></label>
+                            <label asp-for="Users.FirstOrDefault().UserManagerName"></label>
+
                         </th>
+
+                        
 
                     </tr>
                     @foreach(var items in Model.Users)
@@ -46,6 +52,18 @@
                             <td>
                                 @Html.DisplayFor(m => items.Email)
                             </td>
+                            <td>
+                                @Html.DisplayFor(m => items.PhoneNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => items.UserAdress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => items.UserManagerName)
+                            </td>
+
+
+
                         </tr>
                         
                     }
