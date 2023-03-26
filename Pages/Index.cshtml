@@ -4,7 +4,17 @@
     ViewData["Title"] = "Home page";
 }
 
+@using Microsoft.AspNetCore.Identity
+@using AspnetCoreWebApp.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 <div class="text-center">
     <h1 class="display-4">Welcome To AspCoreWebApp</h1>
-    
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h1>Aspnet web application to demo login register option and to provide the details about the Crud operation</h1>
+        <h2>Only accessible after the user login into the system</h2>
+    }
 </div>
